@@ -1,12 +1,12 @@
-const API_Key = "a22ddeb2cfc34f0b81c141617260203";
-const BASE_URL = "http://api.weatherapi.com/v1";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
-export async function fetchWeatherData(location: string) {
-  const response = await fetch(
-    `${BASE_URL}/current.json?key=${API_Key}&q=${location}`,
-  );
-  if (!response.ok) {
-    throw new Error("Failed to fetch weather data");
-  }
-  return response.json();
+if (!API_KEY) {
+  throw new Error("API key is not defined.");
+}
+
+export async function fetchWeather(endpoint: string, city: string) {
+  const url = `https://api.weatherapi.com/v1/${endpoint}?key=${API_KEY}&q=${city}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
 }
