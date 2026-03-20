@@ -87,4 +87,5 @@ src/
 
 - Search auto complete
 - User location as default
-- catch for not found city
+- Catch for not found city
+- Responive for phone
