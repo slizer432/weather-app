@@ -87,7 +87,7 @@ const App = () => {
             <Card
               key={index}
               title={title}
-              value={value[index].value || ""}
+              value={value[index].value || "N/A"}
               footer={value[index].footer}
             />
           ))}
