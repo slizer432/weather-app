@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + TypeScript weather dashboard that shows current weather conditions for any city, powered by WeatherAPI.
 
-Currently, two official plugins are available:
+Live demo: https://myweatherapptes.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Search weather by city name
+- Real-time clock and date display
+- Day or night indicator
+- Detailed weather metrics, including:
+  - Temperature
+  - Condition summary
+  - Wind speed and direction
+  - Humidity
+  - Real feel temperature
+  - UV index
+  - Pressure
+  - Wind chill
+  - Gust
+  - Heat index
+  - Cloud coverage
+- Responsive card-based layout
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- WeatherAPI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Clone the repository
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+git clone https://github.com/slizer432/weather-app.git
+cd weather-app
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 2. Install dependencies
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 3. Configure environment variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Create a .env file in the project root and add:
+
+VITE_API_KEY=your_weatherapi_key_here
+
+You can get an API key from: https://www.weatherapi.com/
+
+### 4. Run the development server
+
+npm run dev
+
+App will start on your local Vite server (usually http://localhost:5173).
+
+## Available Scripts
+
+- npm run dev: Start development server
+- npm run build: Build for production
+- npm run preview: Preview production build locally
+- npm run lint: Run ESLint checks
+
+## Project Structure
+
+src/
+
+- components/
+  - SearchBar.tsx
+  - Card.tsx
+  - Loading.tsx
+- lib/
+  - weather.ts
+- service/
+  - service.ts
+- App.tsx
+- main.tsx
+
+## Credits
+
+- Weather data: https://www.weatherapi.com/
+- UI inspiration: https://dribbble.com/shots/22065403-Weather-App-Landing-Page-Design
