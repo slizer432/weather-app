@@ -1,20 +1,29 @@
 import { fetchWeather } from "../lib/weather";
 
-async function getData(city: string) {
-  return await fetchWeather("current.json", city);
-}
-
-export async function getWind(city: string) {
-  const data = await getData(city);
-  return {
-    wind: data.current.wind_kph as number,
-    direction: data.current.wind_dir as string,
+export type WeatherApiResponse = {
+  location: {
+    name: string;
   };
-}
-
-export async function getLocation(city: string) {
-  const data = await getData(city);
-  return {
-    location: data.location.name as string,
+  current: {
+    is_day: number;
+    temp_c: number;
+    condition: {
+      text: string;
+      icon: string;
+    };
+    wind_kph: number;
+    wind_dir: string;
+    humidity: number;
+    feelslike_c: number;
+    uv: number;
+    pressure_mb: number;
+    windchill_c: number;
+    gust_kph: number;
+    heatindex_c: number;
+    cloud: number;
   };
+};
+
+export async function getData(city: string): Promise<WeatherApiResponse> {
+  return (await fetchWeather("current.json", city)) as WeatherApiResponse;
 }
