@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import "./lib/weather";
 import { getData, type WeatherApiResponse } from "./service/service";
-import Loading from "./components/loading";
+import Loading from "./components/Loading";
 
 const App = () => {
   // store current date/time in state so React can re-render
@@ -87,7 +87,7 @@ const App = () => {
             <Card
               key={index}
               title={title}
-              value={value[index].value}
+              value={value[index].value || ""}
               footer={value[index].footer}
             />
           ))}
