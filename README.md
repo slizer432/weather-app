@@ -82,3 +82,9 @@ src/
 
 - Weather data: https://www.weatherapi.com/
 - UI inspiration: https://dribbble.com/shots/22065403-Weather-App-Landing-Page-Design
+
+## To-do list:
+
+- Search auto complete
+- User location as default
+- catch for not found city
