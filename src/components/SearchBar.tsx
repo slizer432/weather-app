@@ -17,9 +17,7 @@ const SearchBar = ({ onSearch }: Props) => {
   const [suggestions, setSuggestions] = useState<suggestion[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [hoveredSuggestion, setHoveredSuggestion] = useState<string | null>(
-    null,
-  );
+  const [, setHoveredSuggestion] = useState<string | null>(null);
   const isSelectingSuggestion = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
