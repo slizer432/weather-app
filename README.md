@@ -86,7 +86,7 @@ src/
 
 ## To-do list:
 
-- Search auto complete
+- ~Search auto complete~
 - User location as default
 - Catch for not found city
 - Responive for phone
