@@ -4,8 +4,8 @@ if (!API_KEY) {
   throw new Error("API key is not defined.");
 }
 
-export async function fetchWeather(endpoint: string, city: string) {
-  const url = `https://api.weatherapi.com/v1/${endpoint}?key=${API_KEY}&q=${city}`;
+export async function fetchWeather(endpoint: string, query: string) {
+  const url = `https://api.weatherapi.com/v1/${endpoint}?key=${API_KEY}&q=${query}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;

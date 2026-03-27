@@ -1,6 +1,7 @@
 # Weather App
 
 A modern React + TypeScript weather dashboard that shows current weather conditions for any city, powered by WeatherAPI.
+This is a simple weather I make just to practice my front end dev skill. Feel free to add suggestions or critics.
 
 Live demo: https://myweatherapptes.netlify.app/
 

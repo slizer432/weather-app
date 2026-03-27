@@ -53,7 +53,7 @@ const App = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center min-h-screen">
       <section className="flex min-w-1/3 min-h-screen justify-center p-8">
         <div className="w-full h-full max-w-md flex flex-col">
           <SearchBar onSearch={setCity} />

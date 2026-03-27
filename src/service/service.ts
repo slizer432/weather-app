@@ -3,6 +3,7 @@ import { fetchWeather } from "../lib/weather";
 export type WeatherApiResponse = {
   location: {
     name: string;
+    localtime: string;
   };
   current: {
     is_day: number;
@@ -26,4 +27,8 @@ export type WeatherApiResponse = {
 
 export async function getData(city: string): Promise<WeatherApiResponse> {
   return (await fetchWeather("current.json", city)) as WeatherApiResponse;
+}
+
+export async function getAutoComplete(query: string) {
+  return await fetchWeather("search.json", query);
 }
