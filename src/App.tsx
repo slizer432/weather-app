@@ -67,9 +67,15 @@ const App = () => {
           <div className="border-2 border-gray-200 w-[70%] my-6 mx-auto"></div>
           {/* Garis bates cuaca */}
           <div className="flex flex-col items-center mt-6">
-            <p className="text-xl">{now.toLocaleDateString()}</p>
+            <p className="text-xl">
+              {now.toLocaleDateString("en-US", {
+                timeZone: data.location.tz_id,
+              })}
+            </p>
             <p id="clock" className="text-xl">
-              {now.toLocaleTimeString()}
+              {now.toLocaleTimeString("en-US", {
+                timeZone: data.location.tz_id,
+              })}
             </p>
             <p className="text-xl">
               {data.current.is_day === 1 ? "Day" : "Night"}

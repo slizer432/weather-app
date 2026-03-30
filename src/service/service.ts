@@ -4,6 +4,7 @@ export type WeatherApiResponse = {
   location: {
     name: string;
     localtime: string;
+    tz_id: string;
   };
   current: {
     is_day: number;
