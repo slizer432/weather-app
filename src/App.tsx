@@ -39,8 +39,19 @@ const App = () => {
     "Cloud",
   ];
 
+  const loadData = async () => {
+    try {
+      const data = await getData(city);
+      setData(data);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "City not found";
+      window.alert(message);
+    }
+    console.error("Failed to fetch weather data");
+  };
+
   useEffect(() => {
-    getData(city).then(setData);
+    loadData();
 
     const timer = setInterval(() => {
       setNow(new Date());
@@ -81,7 +92,7 @@ const App = () => {
               {data.current.is_day === 1 ? "Day" : "Night"}
             </p>
           </div>
-          <h1 className="text-5xl text-center mt-17">{city}</h1>
+          <h1 className="text-5xl text-center mt-17">{data.location.name}</h1>
         </div>
       </section>
       <section className="bg-gray-200 min-w-2/3 min-h-screen p-8">

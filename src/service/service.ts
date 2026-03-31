@@ -26,8 +26,24 @@ export type WeatherApiResponse = {
   };
 };
 
+type WeatherApiError = {
+  error: {
+    code: number;
+    message: string;
+  };
+};
+
+function errorCheck(data: unknown): data is WeatherApiError {
+  return typeof data === "object" && data !== null && "error" in data;
+}
+
 export async function getData(city: string): Promise<WeatherApiResponse> {
-  return (await fetchWeather("current.json", city)) as WeatherApiResponse;
+  const data = (await fetchWeather("current.json", city)) as WeatherApiResponse;
+
+  if (errorCheck(data)) {
+    throw new Error(data.error.message);
+  }
+  return data as WeatherApiResponse;
 }
 
 export async function getAutoComplete(query: string) {
